@@ -1,0 +1,20 @@
+from tkinter import *
+root = Tk()
+root.title("Length Converter App")
+root.geometry("400x400")
+title = Label(root, text="Inches to Centimeters Converter", font=("Arial", 16), fg="blue")
+title.pack(pady=10)
+label = Label(root, text="Enter length in inches:")
+label.pack()
+entry = Entry(root)
+entry.pack(pady=5)
+result = Text(root, height=2, width=20)
+result.pack(pady=10)
+def convert():
+    inches = float(entry.get())
+    cm = inches*2.54
+    result.delete("1.0", END)
+    result.insert(END, str(cm) + " cm")
+button = Button(root, text="Convert", command=convert, bg="#4CAF50", fg="white")
+button.pack(pady=10)
+root.mainloop()
